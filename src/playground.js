@@ -94,32 +94,91 @@
 
 
 
+// export default function() {
+
+
+//   var result = 7 + 1
+//   var result2 = 7 / 1
+//   var result3 = 7 % 2
+//   var result4 = 7 - 1
+//   var result5 = 7 / 0
+//   var result6 = 7 * 0
+
+//   var b = 9
+//   var result7 = ++b
+//   var a = 7
+//   var result8 = --a
+//   var result9 = "Filip" + "Jerga"
+//   var result10 = "1" + 2
+//   var result11 = 2 + "1"
+//   var result12 = 3 + 3 + "1"
+//   var result13 = 7 - "2"
+//   var result14 = "8" / "4"
+//   var result15 = 2 ** 3
+
+//   debugger
+//   result13 -= 2
+//   result15 += 7
+// }
+
+
 export default function() {
+  const a = "Filip"
+  // a = "Peter"
 
+  let b = 28
 
-  var result = 7 + 1
-  var result2 = 7 / 1
-  var result3 = 7 % 2
-  var result4 = 7 - 1
-  var result5 = 7 / 0
-  var result6 = 7 * 0
+  b = 14
+  function functionA() {
+    // "const" is like "var"
+    // it's like saying var greeting = "Hello from ..."
+    // There are some differences I will be talking about later in lecture
+    const greeting = "Hello from FunctionA"
+    console.log("Hello from FunctionA")
 
-  var b = 9
-  var result7 = ++b
-  var a = 7
-  var result8 = --a
-  var result9 = "Filip" + "Jerga"
-  var result10 = "1" + 2
-  var result11 = 2 + "1"
-  var result12 = 3 + 3 + "1"
-  var result13 = 7 - "2"
-  var result14 = "8" / "4"
-  var result15 = 2 ** 3
+    functionB('Ola')
+    console.log('Execution is almost finished')
+    const lastMessage = 'Bye Bye'
+    functionE()
+    console.log(lastMessage)
+  }
+
+  function functionB(greeting) {
+    const name = 'Filip'
+    console.log(greeting + " Filip")
+    functionC();
+    console.log('Done done done')
+  }
+
+  function functionC() {
+    console.log('Not Much to do :(')
+    const hmm = functionD(7 + 7)
+    throw Error()
+    console.log(hmm)
+  }
+
+  function functionD(sum) {
+    const times2 = sum * 2
+    console.log(times2)
+    return times2
+  }
+
+  function functionE() {
+    console.log('Annoying Here')
+  }
 
   debugger
-  result13 -= 2
-  result15 += 7
+  functionA()
 }
+
+
+
+
+
+
+
+
+
 
 
 
