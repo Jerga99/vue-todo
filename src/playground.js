@@ -496,12 +496,7 @@ export default function() {
   //   console.log(personList[i].firstName)
   // }
 
-  personList.forEach(function(person, index) {
-    console.log(index)
-    console.log(person.firstName)
-  })
-
-  personList.forEach(person => console.log(person.firstName))
+  // personList.forEach(person => console.log(person.firstName))
 
   // map
   // filter
@@ -512,16 +507,61 @@ export default function() {
 
   // const personNamesList = personList.map(person => person.firstName)
 
-  const filteredNames = personList.filter(function(person) {
-    if (person.firstName === 'Filip') {
-      return true
-    } else {
-      return false
+  // const filteredNames = personList.filter(function(person) {
+  //   return person.firstName === 'Filip'
+  // })
+
+  // const filteredNames = personList.filter(person => person.firstName === 'Filip')
+
+  Array.prototype.forEach2 = function(callback) {
+    for (let i = 0; i < this.length; i++) {
+      callback(this[i], i)
     }
+  }
+
+  personList.forEach2(function(person, index) {
+    console.log(index)
+    console.log(person.firstName)
+  })
+
+  Array.prototype.map2 = function(callback) {
+    let newArray = []
+    for (let i = 0; i < this.length; i++) {
+      let transformedValue = callback(this[i], i)
+      newArray.push(transformedValue)
+    }
+
+    return newArray
+  }
+
+  const personNamesList = personList.map2(function(person) {
+    return person.firstName
+  })
+
+
+  Array.prototype.filter2 = function(callback) {
+    let newArray = []
+
+    for (let i = 0; i < this.length; i++) {
+      let canAddToArray = callback(this[i], i)
+
+      if (canAddToArray) {
+        newArray.push(this[i])
+      }
+    }
+
+    return newArray
+  }
+
+  const filteredNames = personList.filter2(function(person) {
     return person.firstName === 'Filip'
   })
 
   debugger
+
+
+
+
 
 }
 
