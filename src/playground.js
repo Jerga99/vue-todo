@@ -212,23 +212,10 @@ export default function() {
     //   this.age = age
     // }
 
-    // constructor(personData) {
-    //   debugger
-    //   this.firstName = personData.firstName
-    //   this.lastName = personData.lastName
-    //   this.age = personData.age
-    // }
-
-    // constructor({firstName, age, lastName}) {
-    //   debugger
-    //   this.firstName = firstName
-    //   this.lastName = lastName
-    //   this.age = age
-    // }
-
     constructor(personData) {
       const { firstName, lastName, age = 100 } = personData
 
+      debugger
       this.firstName = firstName
       this.lastName = lastName
       this.age = age
@@ -242,16 +229,6 @@ export default function() {
       callback()
     }
 
-    // persist(database) {
-    //   const self = this
-    //   database.save(function() {
-    //     debugger
-    //     return {
-    //       userName: `${self.firstName} ${self.lastName}`,
-    //       age: self.age
-    //     }
-    //   })
-    // }
     persist(database) {
       database.save(() =>
         ({
@@ -262,11 +239,26 @@ export default function() {
     }
   }
 
+  class Doctor extends Person {
+
+    hospital = ''
+    school = ''
+
+    constructor(personData) {
+      super(personData)
+      this.hospital = personData.hospital
+      this.school = personData.school
+    }
+
+    printUserInfo() {
+      alert('I AM CALLING printUserInfo FROM DOCTOR')
+    }
+  }
+
   class Database {
     items = []
 
     save(getDataCallback) {
-      debugger
       const data = getDataCallback()
       this.items.push(data)
     }
@@ -284,15 +276,24 @@ export default function() {
 
   const db = new Database()
 
-  const person1 = new Person({firstName: 'Filip', lastName: 'Jerga'})
-  person1.printUserInfo()
+  const doctor = new Doctor({
+    firstName: 'Filip',
+    lastName: 'Jerga',
+    age: 50,
+    hospital: 'Testing Hospital',
+    school: 'Testing school'
+  })
 
-  const person2 = new Person({age: 34, firstName: 'Peter', lastName: 'Green'})
-  person2.printUserInfo()
+  doctor.printUserInfo()
+  doctor.persist(db)
 
-  debugger
-  person1.persist(db)
-  person2.persist(db)
+  // const person1 = new Person({firstName: 'Filip', lastName: 'Jerga'})
+  // person1.printUserInfo()
+  // const person2 = new Person({age: 34, firstName: 'Peter', lastName: 'Green'})
+  // person2.printUserInfo()
+
+  // person1.persist(db)
+  // person2.persist(db)
 
   console.log(db.items)
 
