@@ -122,57 +122,125 @@
 // }
 
 
+// export default function() {
+//   const a = "Filip"
+//   // a = "Peter"
+
+//   let b = 28
+
+//   b = 14
+//   function functionA() {
+//     // "const" is like "var"
+//     // it's like saying var greeting = "Hello from ..."
+//     // There are some differences I will be talking about later in lecture
+//     const greeting = "Hello from FunctionA"
+//     console.log("Hello from FunctionA")
+
+//     functionB('Ola')
+//     console.log('Execution is almost finished')
+//     const lastMessage = 'Bye Bye'
+//     functionE()
+//     console.log(lastMessage)
+//   }
+
+//   function functionB(greeting) {
+//     const name = 'Filip'
+//     console.log(greeting + " Filip")
+//     functionC();
+//     console.log('Done done done')
+//   }
+
+//   function functionC() {
+//     console.log('Not Much to do :(')
+//     const hmm = functionD(7 + 7)
+//     throw Error()
+//     console.log(hmm)
+//   }
+
+//   function functionD(sum) {
+//     const times2 = sum * 2
+//     console.log(times2)
+//     return times2
+//   }
+
+//   function functionE() {
+//     console.log('Annoying Here')
+//   }
+
+//   debugger
+//   functionA()
+// }
+
+
+
 export default function() {
-  const a = "Filip"
-  // a = "Peter"
 
-  let b = 28
 
-  b = 14
-  function functionA() {
-    // "const" is like "var"
-    // it's like saying var greeting = "Hello from ..."
-    // There are some differences I will be talking about later in lecture
-    const greeting = "Hello from FunctionA"
-    console.log("Hello from FunctionA")
+  const person = {
+    firstName: 'Filip',
+    lastName: 'Jerga',
+    age: 28,
+    printUserInfo() {
+      debugger
+      // console.log('Hello ' + this.firstName + ' ' + this.lastName)
+      console.log(`Hello ${this.firstName} ${this.lastName} of age: ${this.age}`)
+    },
+    printSomething(callback) {
+      debugger
+      callback()
+    },
+    helpers: {
+      helperVar: "testin variable",
+      helperVar2: "testin variable 2",
+      helperFunc: function() {
+        console.log(this.helperVar)
+      }
+    }
+    // printUserInfo: function() {
 
-    functionB('Ola')
-    console.log('Execution is almost finished')
-    const lastMessage = 'Bye Bye'
-    functionE()
-    console.log(lastMessage)
+    // },
+    // printUserInfo: () => {
+
+    // }
   }
 
-  function functionB(greeting) {
-    const name = 'Filip'
-    console.log(greeting + " Filip")
-    functionC();
-    console.log('Done done done')
-  }
+  // person.printUserInfo()
+  // person.helpers.helperFunc()
 
-  function functionC() {
-    console.log('Not Much to do :(')
-    const hmm = functionD(7 + 7)
-    throw Error()
-    console.log(hmm)
-  }
+  var key = 'printUserInfo'
+  var key1 = 'printSomething'
 
-  function functionD(sum) {
-    const times2 = sum * 2
-    console.log(times2)
-    return times2
-  }
+  // person[key1]('Hello World')
+  person[key1](function() {console.log('Hello World')})
 
-  function functionE() {
-    console.log('Annoying Here')
+  // person['printUserInfo']()
+  // person['helpers']['helperFunc']()
+
+  const dog = {
+    name: 'rex',
+    age: 4,
+    breed: 'German Shepard',
+    displayInfo() {
+      console.log(`Hello ${this.name} of ${this.breed} and age of ${this.age}`)
+    }
   }
 
   debugger
-  functionA()
+  dog.name = 'Fluffy'
+  dog['age'] = 9
+
+  console.log(typeof dog);
+
+  dog.displayInfo()
+
 }
 
-
-
+// Create dog object
+// Create dog properties "name", "age", "breed"
+// Create function to display name, age and breed of the dog
+// TODO: After object is created change values - research
+// Change name with "dot" syntax and age with [] syntax after dog is created
+// check "typeof" of dog object
 
 
 
