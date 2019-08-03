@@ -503,7 +503,25 @@ export default function() {
 
   personList.forEach(person => console.log(person.firstName))
 
+  // map
+  // filter
 
+  // const personNamesList = personList.map(function(person) {
+  //   return person.firstName
+  // })
+
+  // const personNamesList = personList.map(person => person.firstName)
+
+  const filteredNames = personList.filter(function(person) {
+    if (person.firstName === 'Filip') {
+      return true
+    } else {
+      return false
+    }
+    return person.firstName === 'Filip'
+  })
+
+  debugger
 
 }
 
