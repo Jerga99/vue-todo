@@ -328,79 +328,162 @@ export default function() {
   // || - OR
 
 
-  if (2 > 5 && 1 < 10) {
-    console.log('Welcome in if')
+  // if (2 > 5 && 1 < 10) {
+  //   console.log('Welcome in if')
+  // } else {
+  //   console.log('Welcome in else')
+  // }
+
+  // debugger
+
+  // if (true) {
+  //   console.log('True or false?')
+  // } else {
+  //   console.log('True or false?')
+  // }
+
+  // if (true && false) {
+  //   console.log('True or false?')
+  // } else {
+  //   console.log('True or false?')
+  // }
+
+  // if (false || true) {
+  //   console.log('True or false?')
+  // } else {
+  //   console.log('True or false?')
+  // }
+
+  // if (5 > 7) {
+  //   console.log('True or false?')
+  // }
+
+  // const results = 5 < 7 && 4 > 2
+  // if (5 < 7 && 4 > 2) {
+  //   console.log('True or false?')
+  // }
+
+  // if (5 < 7) {
+  //   console.log('True or false?')
+  // }
+
+  // const results2 = 5 < 7 || 7 < 1
+  // if (5 < 7 || 7 < 1) {
+  //   console.log('True or false?')
+  // }
+
+  // if (5 >= 5) {
+  //   console.log('True or false?')
+  // }
+
+  // if (3 <= 5) {
+  //   console.log('True or false?')
+  // }
+
+  // if (2 * 3 == 6) {
+  //   console.log('True or false?')
+  // }
+
+  // if (doctor.school === 'Harvard' || doctor.age > 45) {
+  //   console.log('True or false?')
+  // }
+
+  // doctor.school === 'Harvard' && doctor.age > 30 && alert('Hello World')
+
+
+  // if (5 > 7) {
+  //   console.log('I am called. Hurray!!!!!!')
+
+  // } else if (4 < 2) {
+  //   console.log('Welcome in else if block')
+  // }
+  // else {
+  //   console.log('I am called too. Welcome in else block!!')
+  // }
+
+
+  const dog = {
+    breed: 'German Shepard',
+    age: 5,
+    children: 3,
+    isAfterInjury: true,
+    vacination: {
+      vacination1: true,
+      vacination2: false
+    }
+  }
+
+  if (dog.breed === 'German Shepard' && dog.age > 3) {
+    console.log('Waf Waf!')
   } else {
-    console.log('Welcome in else')
+    console.log('Dog is sad :(')
   }
 
-  debugger
-
-  if (true) {
-    console.log('True or false?')
+  if (dog.children <= 3 && dog.isAfterInjury === false) {
+    console.log('Waf Waf!')
   } else {
-    console.log('True or false?')
+    console.log('Dog is sad :(')
   }
 
-  if (true && false) {
-    console.log('True or false?')
+    if (dog.vacination.vacination1) {
+    console.log('Waf Waf!')
   } else {
-    console.log('True or false?')
+    console.log('Dog is sad :(')
   }
 
-  if (false || true) {
-    console.log('True or false?')
+  if ((dog.children > 2 || dog.vacination.vacination1 === true) && dog.vacination.vacination2 === true) {
+    console.log('Waf Waf!')
   } else {
-    console.log('True or false?')
+    console.log('Dog is sad :(')
   }
 
-  if (5 > 7) {
-    console.log('True or false?')
+  // Tricky one! Why is "!" in front of expresion ?
+  if (!dog.isAfterInjury) {
+    console.log('Waf Waf!')
+  } else {
+    console.log('Dog is sad :(')
   }
 
-  const results = 5 < 7 && 4 > 2
-  if (5 < 7 && 4 > 2) {
-    console.log('True or false?')
+
+  // Strict operators
+  if ( 2 == "2") {
+    console.log('Whaaaat ?')
+  } else {
+    console.log('Hmmmmm :(')
   }
 
-  if (5 < 7) {
-    console.log('True or false?')
+  if ( 2 === "2") {
+    console.log('Whaaaat ?')
+  } else {
+    console.log('Hmmmmm :(')
   }
 
-  const results2 = 5 < 7 || 7 < 1
-  if (5 < 7 || 7 < 1) {
-    console.log('True or false?')
+  if ( 1 === true) {
+    console.log('Whaaaat ?')
+  } else {
+    console.log('Hmmmmm :(')
   }
 
-  if (5 >= 5) {
-    console.log('True or false?')
+
+  if ( 1 == true) {
+    console.log('Whaaaat ?')
+  } else {
+    console.log('Hmmmmm :(')
   }
 
-  if (3 <= 5) {
-    console.log('True or false?')
+
+  if ( 0 === false) {
+    console.log('Whaaaat ?')
+  } else {
+    console.log('Hmmmmm :(')
   }
 
-  if (2 * 3 == 6) {
-    console.log('True or false?')
+   if ( 0 == false) {
+    console.log('Whaaaat ?')
+  } else {
+    console.log('Hmmmmm :(')
   }
 
-  if (doctor.school === 'Harvard' || doctor.age > 45) {
-    console.log('True or false?')
-  }
-
-  doctor.school === 'Harvard' && doctor.age > 30 && alert('Hello World')
-
-
-
-  if (5 > 7) {
-    console.log('I am called. Hurray!!!!!!')
-
-  } else if (4 < 2) {
-    console.log('Welcome in else if block')
-  }
-  else {
-    console.log('I am called too. Welcome in else block!!')
-  }
 
 
 }
