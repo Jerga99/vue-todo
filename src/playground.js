@@ -291,19 +291,19 @@ export default function() {
   //   school: 'Testing school'
   // })
 
-  Person.prototype.myProtoFunction = function() {
-    console.log('I AM PROTO!!!!!!!!')
-  }
+  // Person.prototype.myProtoFunction = function() {
+  //   console.log('I AM PROTO!!!!!!!!')
+  // }
 
-  Object.prototype.myObjectProto = function() {
-    console.log('I AM myObjectProto!!!!!!!!')
-  }
+  // Object.prototype.myObjectProto = function() {
+  //   console.log('I AM myObjectProto!!!!!!!!')
+  // }
 
   const doctor = new Doctor('Filip', 'Jerga', 50 ,'Testing school', 'Testing Hospital')
-  doctor.printUserInfo()
-  doctor.persist(db)
+  // doctor.printUserInfo()
+  // doctor.persist(db)
   const person1 = new Person({firstName: 'Filip', lastName: 'Jerga'})
-  person1.printUserInfo()
+  // person1.printUserInfo()
 
  // Every instance created using new Person() has a __proto__ property
  // which points to the Person.prototype.
@@ -311,7 +311,7 @@ export default function() {
  // This is the chain that is used to traverse to find a property of a
  //  particular object.
 
-  // __proto__ is the actual object that is used in the lookup chain to
+ // __proto__ is the actual object that is used in the lookup chain to
  // resolve methods, etc.  prototype is the object that is used to build
  // __proto__ when you create an object with new:
 
@@ -321,9 +321,103 @@ export default function() {
   // person1.persist(db)
   // person2.persist(db)
 
-  console.log(db.items)
+  // console.log(db.items)
+
+
+  // && - AND
+  // || - OR
+
+
+  if (2 > 5 && 1 < 10) {
+    console.log('Welcome in if')
+  } else {
+    console.log('Welcome in else')
+  }
+
+  debugger
+
+  if (true) {
+    console.log('True or false?')
+  } else {
+    console.log('True or false?')
+  }
+
+  if (true && false) {
+    console.log('True or false?')
+  } else {
+    console.log('True or false?')
+  }
+
+  if (false || true) {
+    console.log('True or false?')
+  } else {
+    console.log('True or false?')
+  }
+
+  if (5 > 7) {
+    console.log('True or false?')
+  }
+
+  const results = 5 < 7 && 4 > 2
+  if (5 < 7 && 4 > 2) {
+    console.log('True or false?')
+  }
+
+  if (5 < 7) {
+    console.log('True or false?')
+  }
+
+  const results2 = 5 < 7 || 7 < 1
+  if (5 < 7 || 7 < 1) {
+    console.log('True or false?')
+  }
+
+  if (5 >= 5) {
+    console.log('True or false?')
+  }
+
+  if (3 <= 5) {
+    console.log('True or false?')
+  }
+
+  if (2 * 3 == 6) {
+    console.log('True or false?')
+  }
+
+  if (doctor.school === 'Harvard' || doctor.age > 45) {
+    console.log('True or false?')
+  }
+
+  doctor.school === 'Harvard' && doctor.age > 30 && alert('Hello World')
+
+
+
+  if (5 > 7) {
+    console.log('I am called. Hurray!!!!!!')
+
+  } else if (4 < 2) {
+    console.log('Welcome in else if block')
+  }
+  else {
+    console.log('I am called too. Welcome in else block!!')
+  }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
