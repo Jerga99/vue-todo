@@ -205,21 +205,19 @@ export default function() {
       }
     }
 
-    // constructor(firstName, lastName, age = 0) {
-    //   debugger
-    //   this.firstName = firstName
-    //   this.lastName = lastName
-    //   this.age = age
-    // }
-
-    constructor(personData) {
-      const { firstName, lastName, age = 100 } = personData
-
-      debugger
+    constructor(firstName, lastName, age = 0) {
       this.firstName = firstName
       this.lastName = lastName
       this.age = age
     }
+
+    // constructor(personData) {
+    //   const { firstName, lastName, age = 100 } = personData
+
+    //   this.firstName = firstName
+    //   this.lastName = lastName
+    //   this.age = age
+    // }
 
     printUserInfo() {
       console.log(`Hello ${this.firstName} ${this.lastName} of age: ${this.age}`)
@@ -244,13 +242,22 @@ export default function() {
     hospital = ''
     school = ''
 
-    constructor(personData) {
-      super(personData)
-      this.hospital = personData.hospital
-      this.school = personData.school
+    // constructor({school, hospital, ...rest}) {
+    //   super(rest)
+
+    //   this.hospital = hospital
+    //   this.school = school
+    // }
+
+    constructor(firstName, lastName, age, school, hospital) {
+      super(firstName, lastName, age)
+
+      this.hospital = hospital
+      this.school = school
     }
 
     printUserInfo() {
+      super.printUserInfo()
       alert('I AM CALLING printUserInfo FROM DOCTOR')
     }
   }
@@ -276,19 +283,38 @@ export default function() {
 
   const db = new Database()
 
-  const doctor = new Doctor({
-    firstName: 'Filip',
-    lastName: 'Jerga',
-    age: 50,
-    hospital: 'Testing Hospital',
-    school: 'Testing school'
-  })
+  // const doctor = new Doctor({
+  //   firstName: 'Filip',
+  //   lastName: 'Jerga',
+  //   age: 50,
+  //   hospital: 'Testing Hospital',
+  //   school: 'Testing school'
+  // })
 
+  Person.prototype.myProtoFunction = function() {
+    console.log('I AM PROTO!!!!!!!!')
+  }
+
+  Object.prototype.myObjectProto = function() {
+    console.log('I AM myObjectProto!!!!!!!!')
+  }
+
+  const doctor = new Doctor('Filip', 'Jerga', 50 ,'Testing school', 'Testing Hospital')
   doctor.printUserInfo()
   doctor.persist(db)
+  const person1 = new Person({firstName: 'Filip', lastName: 'Jerga'})
+  person1.printUserInfo()
 
-  // const person1 = new Person({firstName: 'Filip', lastName: 'Jerga'})
-  // person1.printUserInfo()
+ // Every instance created using new Person() has a __proto__ property
+ // which points to the Person.prototype.
+
+ // This is the chain that is used to traverse to find a property of a
+ //  particular object.
+
+  // __proto__ is the actual object that is used in the lookup chain to
+ // resolve methods, etc.  prototype is the object that is used to build
+ // __proto__ when you create an object with new:
+
   // const person2 = new Person({age: 34, firstName: 'Peter', lastName: 'Green'})
   // person2.printUserInfo()
 
