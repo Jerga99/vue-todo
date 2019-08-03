@@ -196,7 +196,7 @@ export default function() {
   class Person {
     firstName = ''
     lastName = ''
-    age = 0
+    age
 
     helpers = {
       helperVar: "testin variable",
@@ -205,8 +205,30 @@ export default function() {
       }
     }
 
-    constructor(firstName, lastName, age) {
-      debugger
+    // constructor(firstName, lastName, age = 0) {
+    //   debugger
+    //   this.firstName = firstName
+    //   this.lastName = lastName
+    //   this.age = age
+    // }
+
+    // constructor(personData) {
+    //   debugger
+    //   this.firstName = personData.firstName
+    //   this.lastName = personData.lastName
+    //   this.age = personData.age
+    // }
+
+    // constructor({firstName, age, lastName}) {
+    //   debugger
+    //   this.firstName = firstName
+    //   this.lastName = lastName
+    //   this.age = age
+    // }
+
+    constructor(personData) {
+      const { firstName, lastName, age = 100 } = personData
+
       this.firstName = firstName
       this.lastName = lastName
       this.age = age
@@ -227,11 +249,16 @@ export default function() {
     // printUserInfo = () => {}
   }
 
-  debugger
-  const person1 = new Person('Filip', 'Jerga', 28)
+  // const person1 = new Person('Filip', 'Jerga')
+  // person1.printUserInfo()
+
+  // const person2 = new Person('Peter', 'Green', 35)
+  // person2.printUserInfo()
+
+  const person1 = new Person({firstName: 'Filip', lastName: 'Jerga'})
   person1.printUserInfo()
 
-  const person2 = new Person('Peter', 'Green', 35)
+  const person2 = new Person({age: 34, firstName: 'Peter', lastName: 'Green'})
   person2.printUserInfo()
 
 
