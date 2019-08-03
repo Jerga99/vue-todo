@@ -242,18 +242,47 @@ export default function() {
       callback()
     }
 
-    // printUserInfo = function() {
-
+    // persist(database) {
+    //   const self = this
+    //   database.save(function() {
+    //     debugger
+    //     return {
+    //       userName: `${self.firstName} ${self.lastName}`,
+    //       age: self.age
+    //     }
+    //   })
     // }
-
-    // printUserInfo = () => {}
+    persist(database) {
+      database.save(() =>
+        ({
+          userName: `${this.firstName} ${this.lastName}`,
+          age: this.age
+        })
+      )
+    }
   }
 
-  // const person1 = new Person('Filip', 'Jerga')
-  // person1.printUserInfo()
+  class Database {
+    items = []
 
-  // const person2 = new Person('Peter', 'Green', 35)
-  // person2.printUserInfo()
+    save(getDataCallback) {
+      debugger
+      const data = getDataCallback()
+      this.items.push(data)
+    }
+  }
+
+  // Normal vs Arrow
+  // function displayGreeting(greeting) {
+  //   return `${greeting} Filip`
+  // }
+
+  // const displayGreeting2 = greeting => `${greeting} Filip`
+
+  // console.log(displayGreeting('Hello'))
+  // console.log(displayGreeting2('Hola'))
+
+  const db = new Database()
 
   const person1 = new Person({firstName: 'Filip', lastName: 'Jerga'})
   person1.printUserInfo()
@@ -261,6 +290,11 @@ export default function() {
   const person2 = new Person({age: 34, firstName: 'Peter', lastName: 'Green'})
   person2.printUserInfo()
 
+  debugger
+  person1.persist(db)
+  person2.persist(db)
+
+  console.log(db.items)
 
 }
 
