@@ -175,72 +175,67 @@
 
 export default function() {
 
-
   const person = {
     firstName: 'Filip',
     lastName: 'Jerga',
     age: 28,
     printUserInfo() {
-      debugger
-      // console.log('Hello ' + this.firstName + ' ' + this.lastName)
       console.log(`Hello ${this.firstName} ${this.lastName} of age: ${this.age}`)
     },
     printSomething(callback) {
-      debugger
       callback()
     },
     helpers: {
       helperVar: "testin variable",
-      helperVar2: "testin variable 2",
       helperFunc: function() {
         console.log(this.helperVar)
       }
     }
-    // printUserInfo: function() {
-
-    // },
-    // printUserInfo: () => {
-
-    // }
   }
 
-  // person.printUserInfo()
-  // person.helpers.helperFunc()
+  class Person {
+    firstName = ''
+    lastName = ''
+    age = 0
 
-  var key = 'printUserInfo'
-  var key1 = 'printSomething'
-
-  // person[key1]('Hello World')
-  person[key1](function() {console.log('Hello World')})
-
-  // person['printUserInfo']()
-  // person['helpers']['helperFunc']()
-
-  const dog = {
-    name: 'rex',
-    age: 4,
-    breed: 'German Shepard',
-    displayInfo() {
-      console.log(`Hello ${this.name} of ${this.breed} and age of ${this.age}`)
+    helpers = {
+      helperVar: "testin variable",
+      helperFunc: function() {
+        console.log(this.helperVar)
+      }
     }
+
+    constructor(firstName, lastName, age) {
+      debugger
+      this.firstName = firstName
+      this.lastName = lastName
+      this.age = age
+    }
+
+    printUserInfo() {
+      console.log(`Hello ${this.firstName} ${this.lastName} of age: ${this.age}`)
+    }
+
+    printSomething(callback) {
+      callback()
+    }
+
+    // printUserInfo = function() {
+
+    // }
+
+    // printUserInfo = () => {}
   }
 
   debugger
-  dog.name = 'Fluffy'
-  dog['age'] = 9
+  const person1 = new Person('Filip', 'Jerga', 28)
+  person1.printUserInfo()
 
-  console.log(typeof dog);
+  const person2 = new Person('Peter', 'Green', 35)
+  person2.printUserInfo()
 
-  dog.displayInfo()
 
 }
-
-// Create dog object
-// Create dog properties "name", "age", "breed"
-// Create function to display name, age and breed of the dog
-// TODO: After object is created change values - research
-// Change name with "dot" syntax and age with [] syntax after dog is created
-// check "typeof" of dog object
 
 
 
