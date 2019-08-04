@@ -80,6 +80,10 @@ $color-red: red;
   background-color: #795899;
   color: white;
   font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .modal {
@@ -117,7 +121,13 @@ $color-red: red;
     /*height: 2000px;*/
   }
 
+  &-create-btn-container {
+    margin: 10px;
+  }
+
   &-container {
+    display: flex;
+    flex-direction: column;
     width: 400px;
     min-height: 400px;
     background-color: #ededed;
