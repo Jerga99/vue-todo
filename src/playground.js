@@ -402,16 +402,56 @@ export default function() {
   // }
 
 
-  // const dog = {
-  //   breed: 'German Shepard',
-  //   age: 5,
-  //   children: 3,
-  //   isAfterInjury: true,
-  //   vacination: {
-  //     vacination1: true,
-  //     vacination2: false
-  //   }
+  const dog = {
+    breed: 'German Shepard',
+    age: 5,
+    children: 3,
+    isAfterInjury: true,
+    vacination: {
+      vacination1: true,
+      vacination2: false
+    },
+    testFunction1: () => "Test Value 1",
+    testFunction2: () => "Test Value 2"
+  }
+
+  // const name = "Filip"
+  // name = "John"
+
+  // let name = "Filip"
+  // name = "John"
+
+  // var name = "Filip"
+  // let name1 = "Emma"
+
+  // var name = "John"
+  // let name1 = "Victor"
+
+  // console.log(a)
+  // console.log(b)
+  // if (dog.age > 3) {
+  //   var a = "something"
+  //   let b = "anything"
   // }
+
+  // console.log(a)
+  // console.log(b)
+
+
+  const someVar = dog.age > 6 ? dog.testFunction1() :  dog.testFunction2()
+
+  dog.age > 3 && dog.isAfterInjury && dog.testFunction1()
+
+  if (dog.age > 3 && dog.isAfterInjury) {
+    dog.testFunction1()
+  }
+
+  const { breed, isAfterInjury } = dog
+
+  const {breed} = dog
+  const {isAfterInjury} = dog
+
+
 
   // if (dog.breed === 'German Shepard' && dog.age > 3) {
   //   console.log('Waf Waf!')
@@ -513,51 +553,51 @@ export default function() {
 
   // const filteredNames = personList.filter(person => person.firstName === 'Filip')
 
-  Array.prototype.forEach2 = function(callback) {
-    for (let i = 0; i < this.length; i++) {
-      callback(this[i], i)
-    }
-  }
+  // Array.prototype.forEach2 = function(callback) {
+  //   for (let i = 0; i < this.length; i++) {
+  //     callback(this[i], i)
+  //   }
+  // }
 
-  personList.forEach2(function(person, index) {
-    console.log(index)
-    console.log(person.firstName)
-  })
+  // personList.forEach2(function(person, index) {
+  //   console.log(index)
+  //   console.log(person.firstName)
+  // })
 
-  Array.prototype.map2 = function(callback) {
-    let newArray = []
-    for (let i = 0; i < this.length; i++) {
-      let transformedValue = callback(this[i], i)
-      newArray.push(transformedValue)
-    }
+  // Array.prototype.map2 = function(callback) {
+  //   let newArray = []
+  //   for (let i = 0; i < this.length; i++) {
+  //     let transformedValue = callback(this[i], i)
+  //     newArray.push(transformedValue)
+  //   }
 
-    return newArray
-  }
+  //   return newArray
+  // }
 
-  const personNamesList = personList.map2(function(person) {
-    return person.firstName
-  })
+  // const personNamesList = personList.map2(function(person) {
+  //   return person.firstName
+  // })
 
 
-  Array.prototype.filter2 = function(callback) {
-    let newArray = []
+  // Array.prototype.filter2 = function(callback) {
+  //   let newArray = []
 
-    for (let i = 0; i < this.length; i++) {
-      let canAddToArray = callback(this[i], i)
+  //   for (let i = 0; i < this.length; i++) {
+  //     let canAddToArray = callback(this[i], i)
 
-      if (canAddToArray) {
-        newArray.push(this[i])
-      }
-    }
+  //     if (canAddToArray) {
+  //       newArray.push(this[i])
+  //     }
+  //   }
 
-    return newArray
-  }
+  //   return newArray
+  // }
 
-  const filteredNames = personList.filter2(function(person) {
-    return person.firstName === 'Filip'
-  })
+  // const filteredNames = personList.filter2(function(person) {
+  //   return person.firstName === 'Filip'
+  // })
 
-  debugger
+  // debugger
 
 
 
