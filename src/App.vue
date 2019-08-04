@@ -55,7 +55,10 @@ export default {
 </script>
 
 <!-- Stylings, css, scss.... -->
-<style>
+<style lang="scss">
+
+$color-red: red;
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -65,43 +68,46 @@ export default {
   margin-top: 60px;
 }
 
-.todo-wrapper {
-  /* flexible styling */
-  display: flex;
+.todo {
+  &-wrapper {
+    /* flexible styling */
+    display: flex;
 
-  /* it defines alignment along the main axis */
-  justify-content: center;
+    /* it defines alignment along the main axis */
+    justify-content: center;
 
-  /*flex-direction: column;*/
-  width: 100%;
-  /*height: 2000px;*/
+    /*flex-direction: column;*/
+    width: 100%;
+    /*height: 2000px;*/
+  }
+
+  &-container {
+    width: 400px;
+    min-height: 400px;
+    background-color: #ededed;
+    border-radius: 5px;
+  }
+
+  &-item {
+    background-color: gray;
+    min-height: 70px;
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 23px;
+
+    &-content {
+      &-title {
+        font-weight: bold;
+      }
+
+      &-description {
+        font-size: 19px;
+      }
+    }
+  }
 }
-
-.todo-container {
-  width: 400px;
-  min-height: 400px;
-  background-color: #ededed;
-  border-radius: 5px;
-}
-
-.todo-item {
-  background-color: gray;
-  min-height: 70px;
-  margin: 10px;
-  padding: 10px;
-  color: white;
-  border-radius: 5px;
-  font-size: 23px;
-}
-
-.todo-item-content-title {
-  font-weight: bold;
-}
-
-.todo-item-content-description {
-  font-size: 19px;
-}
-
 
 </style>
 
