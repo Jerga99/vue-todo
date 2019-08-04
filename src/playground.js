@@ -438,19 +438,18 @@ export default function() {
   // console.log(b)
 
 
-  const someVar = dog.age > 6 ? dog.testFunction1() :  dog.testFunction2()
+  // const someVar = dog.age > 6 ? dog.testFunction1() :  dog.testFunction2()
 
-  dog.age > 3 && dog.isAfterInjury && dog.testFunction1()
+  // dog.age > 3 && dog.isAfterInjury && dog.testFunction1()
 
-  if (dog.age > 3 && dog.isAfterInjury) {
-    dog.testFunction1()
-  }
+  // if (dog.age > 3 && dog.isAfterInjury) {
+  //   dog.testFunction1()
+  // }
 
-  const { breed, isAfterInjury } = dog
+  // const { breed, isAfterInjury } = dog
 
-  const {breed} = dog
-  const {isAfterInjury} = dog
-
+  // const {breed} = dog
+  // const {isAfterInjury} = dog
 
 
   // if (dog.breed === 'German Shepard' && dog.age > 3) {
@@ -600,8 +599,40 @@ export default function() {
   // debugger
 
 
+  // const globalScope = "globalScope"
+  // function a() {
+  //   const aScope = "sScope"
+  //   console.log(aScope)
+  //   console.log(globalScope)
 
+  //   function b() {
+  //     const bScope = "bSCope"
+  //     console.log(aScope)
+  //     console.log(globalScope)
 
+  //     if (2 > 1) {
+  //       debugger
+  //       const ifScope = "ifScope"
+  //       console.log(bScope)
+  //       console.log(ifScope)
+  //     }
+
+  //     console.log(ifScope)
+  //   }
+
+  //   if (5 > 3) {
+  //     const ifScope= "ifScope"
+  //     console.log(aScope)
+  //     // console.log(bScope)
+  //     console.log(globalScope)
+  //   }
+
+  //   // console.log(bScope)
+  //   // console.log(ifScope)
+
+  //   b()
+  // }
+  // a()
 
 }
 
