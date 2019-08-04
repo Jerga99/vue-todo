@@ -6,6 +6,16 @@
       <div class="todo-container">
         <!-- <TodoList /> -->
         <todo-list :todos="todos" />
+        <div class="todo-create-btn-container">
+          <div class="app-button">
+            Create
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        Modal Window
       </div>
     </div>
   </div>
@@ -62,6 +72,37 @@ $color-red: red;
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.app-button {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #795899;
+  color: white;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed; // stay in place
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; // enable scroll if needed
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+
 
 .todo {
   &-wrapper {
