@@ -5,7 +5,7 @@
     <div class="todo-wrapper">
       <div class="todo-container">
         <!-- <TodoList /> -->
-        <todo-list />
+        <todo-list :todos="todos" />
       </div>
     </div>
   </div>
@@ -20,6 +20,27 @@ export default {
   name: 'app',
   components: {
     TodoList
+  },
+  data() {
+    return {
+      todos: [
+        {
+          _id: '1',
+          title: 'Walk the dog',
+          description: 'Go to forrest near the Zoo'
+        },
+        {
+          _id: '2',
+          title: 'Buy a bread',
+          description: 'Whole grain bread would be good'
+        },
+        {
+          _id: '3',
+          title: 'Learn Programming',
+          description: 'Preferable Tomorrow!'
+        }
+      ]
+    }
   },
   // This function is run automaticaly by VUE framework
   created() {
