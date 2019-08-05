@@ -71,6 +71,10 @@ $color-red: red;
   margin-top: 60px;
 }
 
+.app-error {
+  color: #ff1212;
+}
+
 .app-form {
   .label {
     display: block;
@@ -83,13 +87,12 @@ $color-red: red;
     font-size: 17px;
   }
 
-  .form-input {
-    padding: 10px;
-    font-size: 17px;
-  }
-
   .form-control {
-    margin-bottom: 10px
+    margin-bottom: 10px;
+
+    &-last {
+      margin-bottom: 0;
+    }
   }
 }
 
