@@ -7,13 +7,15 @@
         <!-- <TodoList /> -->
         <todo-list :todos="todos" />
         <div class="todo-create-btn-container">
-          <div class="app-button">
+          <div
+            @click="openModal"
+            class="app-button">
             Create
           </div>
         </div>
       </div>
     </div>
-    <Modal />
+    <Modal :isOpen="isModalOpen" />
   </div>
 </template>
 
@@ -30,6 +32,7 @@ export default {
   },
   data() {
     return {
+      isModalOpen: false,
       todos: [
         {
           _id: '1',
@@ -52,6 +55,12 @@ export default {
   // This function is run automaticaly by VUE framework
   created() {
     playground()
+  },
+  methods: {
+    openModal() {
+      debugger
+      this.isModalOpen = !this.isModalOpen
+    }
   }
 }
 </script>
