@@ -8,14 +8,16 @@
         <todo-list :todos="todos" />
         <div class="todo-create-btn-container">
           <div
-            @click="openModal"
+            @click="isModalOpen = true"
             class="app-button">
             Create
           </div>
         </div>
       </div>
     </div>
-    <Modal :isOpen="isModalOpen" />
+    <Modal
+      @modalClosed="isModalOpen = false"
+      :isOpen="isModalOpen" />
   </div>
 </template>
 
@@ -56,12 +58,15 @@ export default {
   created() {
     playground()
   },
-  methods: {
-    openModal() {
-      debugger
-      this.isModalOpen = !this.isModalOpen
-    }
-  }
+  // methods: {
+  //   openModal() {
+  //     this.isModalOpen = true
+  //   },
+  //   closeModal(data) {
+  //     alert(data.value)
+  //     this.isModalOpen = false
+  //   }
+  // }
 }
 </script>
 
