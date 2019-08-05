@@ -7,7 +7,7 @@
         <!-- <TodoList /> -->
         <todo-list :todos="todos" />
         <div class="todo-create-btn-container">
-          <todo-create />
+          <todo-create @formSubmitted="createTodo" />
         </div>
       </div>
     </div>
@@ -49,6 +49,11 @@ export default {
   // This function is run automaticaly by VUE framework
   created() {
     playground()
+  },
+  methods: {
+    createTodo(todo) {
+      this.todos.push(todo)
+    }
   }
 }
 </script>
