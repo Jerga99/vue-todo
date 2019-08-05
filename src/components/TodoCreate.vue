@@ -41,10 +41,17 @@ export default {
       }
     }
   },
+  computed: {
+    isFormValid() {
+      return this.form.title && this.form.description ? true : false
+    }
+  },
   methods: {
     submitForm() {
-      this.$emit('formSubmitted', {...this.form})
-      this.resetForm()
+      if (this.isFormValid) {
+        this.$emit('formSubmitted', {...this.form})
+        this.resetForm()
+      }
     },
     resetForm() {
       this.form.title = ''
