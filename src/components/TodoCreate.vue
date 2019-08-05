@@ -1,7 +1,7 @@
 
 
 <template>
-  <modal>
+  <modal ref="modal">
     <form class="app-form">
       <div class="form-control">
         <label class="label">Title</label>
@@ -38,18 +38,25 @@ export default {
       form: {
         title: '',
         description: ''
-      }
+      },
+      forceClose: false
     }
   },
   computed: {
     isFormValid() {
-      return this.form.title && this.form.description ? true : false
+      return this.form.title > 8 && this.form.description > 10 ? true : false
+    },
+    modal() {
+      return this.$refs.modal
     }
   },
   methods: {
     submitForm() {
       if (this.isFormValid) {
         this.$emit('formSubmitted', {...this.form})
+        this.modal.close()
+        // this.forceClose = true
+        // this.$nextTick(() => this.forceClose = false)
         this.resetForm()
       }
     },
