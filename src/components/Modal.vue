@@ -10,26 +10,7 @@
     <div class="modal" :class="{'is-active': isOpen}">
       <div class="modal-content">
         <span @click="isOpen = false" class="close">&times;</span>
-        <form class="app-form">
-          <div class="form-control">
-            <label class="label">Title</label>
-            <input
-              v-model="form.title"
-              class="form-input"
-              type="text">
-          </div>
-          <div class="form-control">
-            <label class="label">Description</label>
-            <input
-              v-model="form.description"
-              class="form-input"
-              type="text">
-          </div>
-          <button
-            @click="createTodo"
-            type="button"
-            class="app-button is-primary">Confirm</button>
-        </form>
+        <slot />
       </div>
     </div>
   </div>
@@ -38,45 +19,12 @@
 export default {
   data() {
     return {
-      isOpen: false,
-      form: {
-        title: 'some default title',
-        description: 'some default description'
-      }
-    }
-  },
-  methods: {
-    createTodo() {
-      console.log(this.form)
+      isOpen: false
     }
   }
 }
 </script>
 <style scoped lang="scss">
-
-  .app-form {
-    .label {
-      display: block;
-      font-size: 18px;
-      font-weight: bold
-    }
-
-    .form-input {
-      padding: 10px;
-      font-size: 17px;
-    }
-
-    .form-input {
-      padding: 10px;
-      font-size: 17px;
-    }
-
-    .form-control {
-      margin-bottom: 10px
-    }
-  }
-
-
   .close {
     color: #aaa;
     float: right;
