@@ -62,10 +62,14 @@ $color-red: red;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.is-primary {
+  background-color: #47ca47 !important;
+}
+
 
 .app-button {
   font-size: 20px;
