@@ -13,31 +13,40 @@
     </div>
     <button
       @click="editMode = true"
-      class="app-button is-warning">Edit</button>
+      class="app-button is-warning">Edit
+    </button>
+    <button
+      @click="deleteTodo"
+      class="app-button is-danger">Delete
+    </button>
   </div>
   <div v-else class="todo-item">
     <form class="app-form">
       <div class="form-control">
         <label class="label">Title</label>
         <input
+          :value="title"
           class="form-input"
           type="text">
       </div>
       <div class="form-control form-control-last">
         <label class="label">Description</label>
         <textarea
+          :value="description"
           cols="30"
           rows="2"
           class="form-input">
         </textarea>
       </div>
       <button
-        @click="editMode = false"
-        class="app-button is-warning">Update</button>
+        @click.prevent="editTodo"
+        class="app-button is-warning">Update
+      </button>
       <button
-        @click="deleteTodo"
-        class="app-button is-danger">Delete</button>
-      </form>
+        @click.prevent="editMode = false"
+        class="app-button is-danger">Cancel
+      </button>
+    </form>
   </div>
 </template>
 <script>
