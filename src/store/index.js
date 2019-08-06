@@ -27,11 +27,12 @@ const store = {
   },
   actions: {
     initStore(state) {
-      debugger
       const todos = localStorage.getItem('my_todos')
 
       if (!todos) {
         Vue.set(state, 'todos', INITIAL_DATA.todos)
+      } else {
+        Vue.set(state, 'todos', JSON.parse(todos))
       }
 
       return state.todos
@@ -39,6 +40,8 @@ const store = {
     createTodo(state, todo) {
       todo._id = Math.random().toString(36).substr(2, 7)
       state.todos.push(todo)
+
+      persistData(state.todos)
     },
     updateTodo(state, todoToUpdate) {
       const index = state.todos.findIndex((todo) => {
@@ -46,6 +49,7 @@ const store = {
       })
 
       Vue.set(state.todos, index, todoToUpdate)
+      persistData(state.todos)
     },
     deleteTodo(state, todoId) {
       const index = state.todos.findIndex((todo) => {
@@ -53,8 +57,14 @@ const store = {
       })
 
       state.todos.splice(index, 1)
+      persistData(state.todos)
     }
   }
+}
+
+function persistData(value) {
+  const stringifiedValue = JSON.stringify(value)
+  localStorage.setItem('my_todos', stringifiedValue)
 }
 
 store.dispatch = function(action, payload) {
