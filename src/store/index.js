@@ -1,28 +1,41 @@
 
 import Vue from 'vue'
 
+const INITIAL_DATA = {
+  todos: [
+    {
+      _id: '1',
+      title: 'Walk the dog',
+      description: 'Go to forrest near the Zoo'
+    },
+    {
+      _id: '2',
+      title: 'Buy a bread',
+      description: 'Whole grain bread would be good'
+    },
+    {
+      _id: '3',
+      title: 'Learn Programming',
+      description: 'Preferable Tomorrow!'
+    }
+  ]
+}
 
 const store = {
   state: {
-    todos: [
-      {
-        _id: '1',
-        title: 'Walk the dog',
-        description: 'Go to forrest near the Zoo'
-      },
-      {
-        _id: '2',
-        title: 'Buy a bread',
-        description: 'Whole grain bread would be good'
-      },
-      {
-        _id: '3',
-        title: 'Learn Programming',
-        description: 'Preferable Tomorrow!'
-      }
-    ]
+     todos: []
   },
   actions: {
+    initStore(state) {
+      debugger
+      const todos = localStorage.getItem('my_todos')
+
+      if (!todos) {
+        Vue.set(state, 'todos', INITIAL_DATA.todos)
+      }
+
+      return state.todos
+    },
     createTodo(state, todo) {
       todo._id = Math.random().toString(36).substr(2, 7)
       state.todos.push(todo)

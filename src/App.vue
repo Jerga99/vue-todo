@@ -34,7 +34,8 @@ export default {
   },
   // This function is run automaticaly by VUE framework
   created() {
-    playground()
+    // playground()
+    this.todos = store.dispatch('initStore')
   },
   methods: {
     createTodo(todo) {
