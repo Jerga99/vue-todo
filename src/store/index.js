@@ -41,7 +41,7 @@ const store = {
       todo._id = Math.random().toString(36).substr(2, 7)
       state.todos.push(todo)
 
-      persistData(state.todos)
+      return state.todos
     },
     updateTodo(state, todoToUpdate) {
       const index = state.todos.findIndex((todo) => {
@@ -49,7 +49,7 @@ const store = {
       })
 
       Vue.set(state.todos, index, todoToUpdate)
-      persistData(state.todos)
+      return state.todos
     },
     deleteTodo(state, todoId) {
       const index = state.todos.findIndex((todo) => {
@@ -57,7 +57,7 @@ const store = {
       })
 
       state.todos.splice(index, 1)
-      persistData(state.todos)
+      return state.todos
     }
   }
 }
@@ -72,10 +72,13 @@ store.dispatch = function(action, payload) {
     throw new Error(`Action ${action} is not defined in the store`)
   }
 
-  return this.actions[action](this.state, payload)
+  const result = this.actions[action](this.state, payload)
+
+  if (!result) return
+
+  persistData(result)
+  return result
 }
-
-
 
 
 
