@@ -85,7 +85,7 @@ export default {
       this.editMode = false
     },
     deleteTodo() {
-      alert('deleting todo!')
+      store.dispatch('deleteTodo', this.todo._id)
     }
   }
 }
