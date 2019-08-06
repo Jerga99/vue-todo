@@ -11,6 +11,12 @@
         {{description}}
       </div>
     </div>
+    <button
+      @click="editTodo"
+      class="app-button is-warning">Edit</button>
+    <button
+      @click="deleteTodo"
+      class="app-button is-danger">Delete</button>
   </div>
 </template>
 <script>
@@ -27,11 +33,27 @@ export default {
       default: 'Default Description'
     }
     // Array, Object, String, Number, Boolean, Function
+  },
+  methods: {
+    editTodo() {
+      alert('editing todo!')
+    },
+    deleteTodo() {
+      alert('deleting todo!')
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
+  .app-button {
+    font-size: 15px;
+
+    &.is-warning {
+      margin-right: 5px;
+    }
+  }
+
   .todo {
     &-item {
       background-color: gray;
@@ -43,6 +65,8 @@ export default {
       font-size: 23px;
 
       &-content {
+        margin-bottom: 10px;
+
         &-title {
           font-weight: bold;
         }
